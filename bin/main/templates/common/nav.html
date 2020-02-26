@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="nav">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark px-5 py-2">
+		<a class="navbar-brand" th:href="@{/}">Spring Boot</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/user-list}">User List</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/login}">Sign in</a></li>
+			</ul>
+			<div class="navbar-text navbar-right">
+				<form sec:authorize="isAuthenticated()" id="logout" th:action="@{/logout}" method="post">
+					<a href="javascript:{}" onclick="document.getElementById('logout').submit(); return false;"
+						class="nav-item nav-link">Logout</a>
+				</form>
+			</div>
+		</div>
+	</nav>
+</nav>
+</body>
+</html>
